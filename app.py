@@ -1,7 +1,6 @@
 import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
-import grasia_dash_components as gdc
 import dash_html_components as html
 from dash.dependencies import Input, Output, ClientsideFunction
 import plotly.graph_objects as go
