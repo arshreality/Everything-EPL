@@ -17,7 +17,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets, external_sc
 
 server = app.server
 
-df_results = pd.read_csv('../epl/datasets/results_since_92.csv')
+df_results = pd.read_csv('./assets/datasets/results_since_92.csv')
 
 
 def create_table(df_results):
@@ -33,7 +33,7 @@ def create_table(df_results):
     return fig
 
 
-df_scorers = pd.read_csv('../epl/datasets/top_goal_scorers.csv')
+df_scorers = pd.read_csv('./assets/datasets/top_goal_scorers.csv')
 
 figure = {
     'data': [
@@ -59,7 +59,7 @@ figure = {
 }
 
 df_stats = pd.read_csv(
-    '../epl/datasets/stats_2006-2018/EPL_2018.csv').fillna(0)
+    './assets/datasets/stats_2006-2018/EPL_2018.csv').fillna(0)
 
 
 def graph_stats(df, stat):
@@ -77,7 +77,7 @@ def graph_pie(df):
 
 
 df_standings = pd.read_csv(
-    '../epl/datasets/EPLStandings.csv', index_col=0).T
+    './assets/datasets/EPLStandings.csv', index_col=0).T
 
 
 def graph_line(team):
@@ -242,7 +242,7 @@ content = html.Div(
             multi=False
         ),
         dcc.Graph(id='win_location', figure=graph_pie(pd.read_csv(
-            '../epl/datasets/full_team_matches_data/all_matches2019.csv').fillna(0))),
+            './assets/datasets/full_team_matches_data/all_matches2019.csv').fillna(0))),
         html.Br(),
         html.H2(style={'textAlign': 'center'}, children='EPL Standings'),
         html.Label('Choose a team:'),
@@ -281,7 +281,7 @@ def table(season):
 )
 def stats(stat, year):
     df = pd.read_csv(
-        '../epl/datasets/stats_2006-2018/EPL_{}.csv'.format(year)).fillna(0)
+        './assets/datasets/stats_2006-2018/EPL_{}.csv'.format(year)).fillna(0)
     return graph_stats(df, stat)
 
 
@@ -293,7 +293,7 @@ def stats(stat, year):
 )
 def pie(year):
     df = pd.read_csv(
-        '../epl/datasets/full_team_matches_data/all_matches{}.csv'.format(year)).fillna(0)
+        './assets/datasets/full_team_matches_data/all_matches{}.csv'.format(year)).fillna(0)
     return graph_pie(df)
 
 
